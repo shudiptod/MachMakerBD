@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "56564044187",
+    "project_id": "findmatchbd",
+    "storage_bucket": "findmatchbd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56564044187:android:2f5ce0ae851e869907913e",
+        "android_client_info": {
+          "package_name": "com.example.findmatchbd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "56564044187-kkghn5ums9ulgq58oj5p4v1rvh27gb8o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.findmatchbd",
+            "certificate_hash": "a0b338b4aed77408330dc418934132a968740c15"
+          }
+        },
+        {
+          "client_id": "56564044187-529hupa42qfq54qibjg29mi6580logog.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMJJF4K4dIGGlhLdxpbx2ymdQuCje81Ys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "56564044187-529hupa42qfq54qibjg29mi6580logog.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
