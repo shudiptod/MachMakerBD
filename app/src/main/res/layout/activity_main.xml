@@ -23,11 +23,21 @@
     <Button
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:text="Matches"
+        android:layout_weight="1"
+        android:onClick="goToMatches"
+        android:paddingRight="20sp"
+        android:paddingLeft="20sp"/>
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:text="Settings"
         android:layout_weight="1"
         android:onClick="goToSettings"
         android:paddingRight="20sp"
         android:paddingLeft="20sp"/>
+
 
 </LinearLayout>
     <com.lorentzos.flingswipe.SwipeFlingAdapterView

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.findmatchbd">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FindMatchBD">
-        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".Matches.MatchesActivity"></activity>
+        <activity android:name=".SettingsActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".ChooseLoginOrRegistrationActivity">

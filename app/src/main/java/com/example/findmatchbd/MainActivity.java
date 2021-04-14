@@ -4,15 +4,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.findmatchbd.Cards.arrayAdapter;
+import com.example.findmatchbd.Cards.cards;
+import com.example.findmatchbd.Matches.MatchesActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     private cards cards_data[];
 
-    private arrayAdapter arrayAdapter;
+    private com.example.findmatchbd.Cards.arrayAdapter arrayAdapter;
     private int i;
 
     private FirebaseAuth mAuth;
@@ -122,9 +123,9 @@ public class MainActivity extends AppCompatActivity {
                 if(snapshot.exists())
                 {
                     Toast.makeText(MainActivity.this, "New Match",Toast.LENGTH_SHORT).show();
-                    usersDb.child(snapshot.getKey()).child("matches").child(currentUId).setValue(true);
+                    usersDb.child(snapshot.getKey()).child("connections").child("matches").child(currentUId).setValue(true);
 
-                    usersDb.child(currentUId).child("matches").child(snapshot.getKey()).setValue(true);
+                    usersDb.child(currentUId).child("connections").child("matches").child(snapshot.getKey()).setValue(true);
                 }
             }
 
@@ -229,6 +230,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToSettings(View view) {
         Intent intent = new Intent(MainActivity.this,SettingsActivity.class);
+        startActivity(intent);
+        return;
+
+    }
+
+    public void goToMatches(View view) {
+        Intent intent = new Intent(MainActivity.this, MatchesActivity.class);
         startActivity(intent);
         return;
 
