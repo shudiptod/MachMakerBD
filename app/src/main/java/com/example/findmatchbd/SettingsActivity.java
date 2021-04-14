@@ -45,8 +45,8 @@ public class SettingsActivity extends AppCompatActivity {
     private ImageView mProfileImage;
 
     private FirebaseAuth mAuth;
-    private DatabaseReference mCustomerDatabase;
-    private String userId, name,profession,profileImage;
+    private DatabaseReference mUserDatabase;
+    private String userId, name,profession,profileImageUrl,userGender;
 
     private Uri resultUri;
 
@@ -55,7 +55,7 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        String userGender = getIntent().getStringExtra("userGender");
+
         mNameField = (EditText) findViewById(R.id.name);
         mProField = (EditText) findViewById(R.id.profession);
         mProfileImage = (ImageView) findViewById(R.id.profileImage);
@@ -63,9 +63,9 @@ public class SettingsActivity extends AppCompatActivity {
         mConfirm = (Button) findViewById(R.id.confirm);
 
         mAuth = FirebaseAuth.getInstance();
-        userId = mAuth.getCurrentUser().getUid();
+        userId = mAuth.getCurrentUser().getUid().toString();
 
-        mCustomerDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(userGender).child(userId);
+        mUserDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(userId);
 
         getUserInfo();
 
@@ -100,7 +100,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     private void getUserInfo() {
 
-        mCustomerDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+        mUserDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists() && snapshot.getChildrenCount()>0)
@@ -111,15 +111,32 @@ public class SettingsActivity extends AppCompatActivity {
                         name = map.get("name").toString();
                         mNameField.setText(name);
                     }
+                    if(map.get("gender") != null)
+                    {
+                        userGender = map.get("gender").toString();
+                        //mNameField.setText(name);
+                    }
                     if(map.get("profession") != null)
                     {
                         profession = map.get("profession").toString();
                         mProField.setText(profession);
                     }
+//                    Glide.get(SettingsActivity.this).clearMemory();
+                    Glide.clear(mProfileImage);
                     if(map.get("profileImageUrl") != null)
                     {
-                        profileImage = map.get("profileImageUrl").toString();
-                        Glide.with(getApplication()).load(profileImage).into(mProfileImage);
+                        profileImageUrl = map.get("profileImageUrl").toString();
+                        switch (profileImageUrl){
+
+                            case "default":
+                                Glide.with(getApplication()).load(R.mipmap.ic_launcher_person).into(mProfileImage);
+                                break;
+
+                            default:
+                                Glide.with(getApplication()).load(profileImageUrl).into(mProfileImage);
+                                break;
+
+                        }
                     }
 
                 }
@@ -202,7 +219,7 @@ public class SettingsActivity extends AppCompatActivity {
                                     String downloadUrl = uri.toString();
                                     Map userInfo = new HashMap();
                                     userInfo.put("profileImageUrl",downloadUrl);
-                                    mCustomerDatabase.updateChildren(userInfo);
+                                    mUserDatabase.updateChildren(userInfo);
                                     finish();
                                     return;
 
@@ -221,6 +238,6 @@ public class SettingsActivity extends AppCompatActivity {
         else {
             finish();
         }
-        mCustomerDatabase.updateChildren(userInfo);
+        mUserDatabase.updateChildren(userInfo);
     }
 }
