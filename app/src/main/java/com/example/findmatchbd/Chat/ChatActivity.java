@@ -44,6 +44,7 @@ public class ChatActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.Theme_FindMatchBD);
         setContentView(R.layout.activity_chat);
         matchId = getIntent().getExtras().getString("matchId");
 

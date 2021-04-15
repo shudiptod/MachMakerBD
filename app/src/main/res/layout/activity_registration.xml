@@ -5,16 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.findmatchbd.RegistrationActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center">
 
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="350sp"
         android:layout_height="wrap_content"
         android:hint="Name"
-        android:id="@+id/name"/>
+        android:id="@+id/name"
+        android:layout_margin="10sp"/>
 
     <RadioGroup
-        android:layout_width="match_parent"
+        android:layout_margin="10sp"
+        android:layout_width="350sp"
         android:layout_height="wrap_content"
         android:id="@+id/radioGroup"
         >
@@ -23,7 +26,8 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Male"/>
+            android:text="Male"
+            android:layout_marginBottom="5sp"/>
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -34,18 +38,35 @@
     </RadioGroup>
 
     <EditText
-        android:layout_width="match_parent"
+        android:layout_margin="10sp"
+        android:layout_width="350sp"
         android:layout_height="wrap_content"
         android:hint="Email"
         android:id="@+id/email"/>
     <EditText
-        android:layout_width="match_parent"
+        android:layout_margin="10sp"
+        android:layout_width="350sp"
         android:layout_height="wrap_content"
         android:hint="Password (Must Be Atleast Six Characters)"
         android:id="@+id/password"/>
+
     <Button
-        android:layout_width="match_parent"
+        android:id="@+id/register"
+        android:layout_width="350sp"
         android:layout_height="wrap_content"
+        android:layout_margin="10sp"
         android:text="Register"
-        android:id="@+id/register"/>
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:backgroundTint="#2C1212" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40sp"
+        android:text="Back"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:backgroundTint="#2C1212" />
 </LinearLayout>

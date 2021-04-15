@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.Theme_FindMatchBD);
         setContentView(R.layout.activity_main);
 
 
@@ -246,9 +247,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToMatches(View view) {
-        Intent intent = new Intent(MainActivity.this, MatchesActivity.class);
-        startActivity(intent);
-        return;
+        final FirebaseUser userMatch = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference currentUserConnectionDb = usersDb.child(currentUId);
+        currentUserConnectionDb.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.child("connections").exists())
+                {
+                    if(snapshot.child("connections").child("matches").exists())
+                    {
+                        Intent intent = new Intent(MainActivity.this, MatchesActivity.class);
+                        startActivity(intent);
+                        return;
+                    }
+
+                }
+                else
+                    {
+                        Toast.makeText(MainActivity.this, "You Have No Matches", Toast.LENGTH_SHORT).show();
+                    }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
     }
 }

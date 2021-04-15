@@ -15,14 +15,15 @@ import com.example.findmatchbd.R;
 
 public class MatchesViewHolders extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    public TextView mMatchId,mMatchName;
+    public TextView mMatchId, mMatchName;
+
 
     public ImageView mMatchImage;
     public MatchesViewHolders(@NonNull View itemView) {
         super(itemView);
         itemView.setOnClickListener(this);
 
-//        mMatchId = (TextView) itemView.findViewById(R.id.matchId);
+        mMatchId = (TextView) itemView.findViewById(R.id.matchId);
         mMatchName = (TextView) itemView.findViewById(R.id.matchName);
 
         mMatchImage = (ImageView) itemView.findViewById(R.id.matchImage);

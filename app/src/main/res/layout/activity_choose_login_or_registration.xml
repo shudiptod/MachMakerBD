@@ -5,16 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.findmatchbd.ChooseLoginOrRegistrationActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/altimage">
+
     <Button
-        android:layout_width="match_parent"
+        android:id="@+id/login"
+        android:layout_width="350sp"
         android:layout_height="wrap_content"
-        android:text="login"
-        android:id="@+id/login"/>
+        android:layout_marginTop="250sp"
+        android:text="log in"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:backgroundTint="#16074A" />
+
     <Button
-        android:layout_width="match_parent"
+        android:id="@+id/register"
+        android:layout_width="350sp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
         android:text="register"
-        android:id="@+id/register"/>
+
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:backgroundTint="#16074A" />
 
 </LinearLayout>

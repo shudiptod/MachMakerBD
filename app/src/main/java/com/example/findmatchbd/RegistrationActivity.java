@@ -13,6 +13,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.findmatchbd.Matches.MatchesActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -27,7 +28,7 @@ import java.util.Map;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    private Button mRegister;
+    private Button mRegister,mBack;
 
     private EditText mEmail, mPassword, mName;
 
@@ -40,6 +41,7 @@ public class RegistrationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.Theme_FindMatchBD);
         setContentView(R.layout.activity_registration);
 
 
@@ -65,7 +67,7 @@ public class RegistrationActivity extends AppCompatActivity {
         mPassword = (EditText) findViewById(R.id.password);
         mRadioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         mName = (EditText) findViewById(R.id.name);
-
+        mBack = (Button) findViewById(R.id.back);
         mRegister.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -106,6 +108,14 @@ public class RegistrationActivity extends AppCompatActivity {
 
                     }
                 });
+            }
+        });
+        mBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegistrationActivity.this, ChooseLoginOrRegistrationActivity.class);
+                startActivity(intent);
+                return;
             }
         });
 

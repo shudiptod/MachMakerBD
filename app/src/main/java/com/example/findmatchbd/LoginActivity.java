@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private Button mLogin;
+    private Button mLogin, mBack;
 
     private EditText mEmail, mPassword;
 
@@ -29,9 +29,11 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.Theme_FindMatchBD);
         setContentView(R.layout.activity_login);
 
         mLogin = (Button) findViewById(R.id.login);
+        mBack = (Button) findViewById(R.id.back);
         mEmail = (EditText) findViewById(R.id.email);
         mPassword = (EditText) findViewById(R.id.password);
 
@@ -51,6 +53,14 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         };
+        mBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, ChooseLoginOrRegistrationActivity.class);
+                startActivity(intent);
+                return;
+            }
+        });
 
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
