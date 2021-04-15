@@ -29,13 +29,6 @@
                 android:id="@+id/matchName"
                 />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Match ID"
-                android:layout_gravity="center"
-                android:id="@+id/matchId"
-                />
     </LinearLayout>
 
 

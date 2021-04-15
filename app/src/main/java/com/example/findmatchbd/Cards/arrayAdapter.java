@@ -26,9 +26,13 @@ public class arrayAdapter extends ArrayAdapter<cards> {
         }
 
         TextView name = (TextView) convertView.findViewById(R.id.name);
+        TextView profession = (TextView) convertView.findViewById(R.id.profession);
+
         ImageView image = (ImageView) convertView.findViewById(R.id.image);
 
         name.setText(card_item.getName());
+        profession.setText(card_item.getProfession());
+
         switch (card_item.getProfileImageUrl()){
 
             case "default":

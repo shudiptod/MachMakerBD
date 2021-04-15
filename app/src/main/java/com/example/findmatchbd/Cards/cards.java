@@ -5,11 +5,13 @@ public class cards {
     private String userId;
     private String name;
     private String profileImageUrl;
+    private String profession;
 
-    public cards(String userId, String name, String profileImageUrl){
+    public cards(String userId, String name, String profileImageUrl, String profession){
         this.userId = userId;
         this.name = name;
         this.profileImageUrl = profileImageUrl;
+        this.profession = profession;
     }
 
     public String getUserId(){
@@ -25,6 +27,14 @@ public class cards {
     public void setName(String name){
         this.name = name;
     }
+
+    public String getProfession(){
+        return profession;
+    }
+    public void setProfession(String profession){
+        this.profession = profession;
+    }
+
 
     public String getProfileImageUrl(){
         return profileImageUrl;
